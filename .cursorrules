@@ -1,0 +1,1 @@
+Follow AGENTS.md in this repo (architecture, invariants, data contract, run/extend). Never add DB decryption; export files only. Never commit chat data or keys.

@@ -1,0 +1,9 @@
+{
+  "name": "OurChat",
+  "repo": "kakao-ourchat",
+  "tagline_ko": "우리 단톡방을 지식그래프로 — 관계·인물·화제, 그리고 재미난 이벤트까지",
+  "tagline_en": "Turn our group chat into a knowledge graph — people, ties, topics, and fun.",
+  "palette": {"bg":"#0B0E14","surface":"#141A24","fg":"#EAECEF","muted":"#8B93A7","accent":"#7C6BF5","accent2":"#38C6C0"},
+  "fonts": {"display":"Space Grotesk","kr":"Pretendard","mono":"JetBrains Mono"},
+  "note_not_official": true
+}

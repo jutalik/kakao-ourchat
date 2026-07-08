@@ -1,0 +1,59 @@
+@import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;700&family=JetBrains+Mono:wght@400;700&display=swap');
+
+:root {
+  /* moche.ai design tokens */
+  --bg: #0B0E14;
+  --fg: #EAECEF;
+  --mid: #8B93A7;
+  --low: #5A607A;
+  --hair: rgba(255,255,255,.10);
+  --hair2: rgba(255,255,255,.05);
+  --live: #7C6BF5;
+  --sans: 'Space Grotesk', 'Pretendard', -apple-system, BlinkMacSystemFont, sans-serif;
+  --mono: 'JetBrains Mono', ui-monospace, Menlo, monospace;
+
+  /* aliases consumed by components */
+  --panel: rgba(255,255,255,.022);
+  --panel2: rgba(255,255,255,.05);
+  --line: rgba(255,255,255,.10);
+  --muted: #8f8d88;
+  --accent: #7C6BF5;
+  --accent2: #38C6C0;
+  color-scheme: dark;
+}
+* { box-sizing: border-box; }
+html, body { margin: 0; height: 100%; }
+body {
+  background: var(--bg);
+  color: var(--fg);
+  font-family: var(--sans);
+  font-size: 14px;
+  line-height: 1.55;
+  -webkit-font-smoothing: antialiased;
+  letter-spacing: -0.005em;
+}
+h1, h2, h3 { font-weight: 500; letter-spacing: -0.02em; margin: 0; }
+a { color: var(--live); text-decoration: none; }
+.muted { color: var(--mid); }
+
+/* monospace for numbers / labels / codes — moche signature */
+.chip {
+  display: inline-flex; align-items: center; gap: 5px;
+  padding: 2px 9px; border-radius: 4px;
+  background: transparent; border: 1px solid var(--hair);
+  font-family: var(--mono); font-size: 11.5px; color: var(--mid);
+  text-transform: uppercase; letter-spacing: 0.02em;
+}
+.card {
+  background: var(--panel);
+  border: 1px solid var(--hair2);
+  border-radius: 6px;
+  padding: 16px 18px;
+}
+.scroll::-webkit-scrollbar { width: 8px; height: 8px; }
+.scroll::-webkit-scrollbar-thumb { background: var(--hair); border-radius: 6px; }
+
+/* monospace numerics (moche signature) — global class match into components */
+.rank b, .mk, .dd, .dn, .tv, .cw, .sub, .tsize, .pstat, .dstats .chip,
+.note { font-family: var(--mono); }
+nav button.active { color: var(--live); }

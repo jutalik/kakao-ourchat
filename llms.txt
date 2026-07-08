@@ -1,0 +1,31 @@
+# OurChat (kakao-ourchat)
+
+> Turn a KakaoTalk group-chat export (.csv/.txt from the official 대화 내용 내보내기) into an
+> interactive knowledge-graph dashboard: relationship graph, activity + persona rankings,
+> per-person profiles, topics over time, and daily/weekly/monthly narratives. Local-first and
+> privacy-respecting — it never decrypts the app database; it only reads files the user exports.
+> Offline by default (numpy + scikit-learn); an optional bring-your-own LLM adds room-tailored
+> personas and AI narratives. No runtime backend — the dashboard is a static site.
+
+## Start here
+- [README](README.md): what it is, quickstart, the two run modes.
+- [AGENTS.md](AGENTS.md): canonical guide for AI agents — architecture, invariants, data contract, how to extend.
+- [Exporting your chat](docs/EXPORTING.md): how a user produces the input file (Mac/PC/iOS/Android) + incremental updates.
+- [Export formats](docs/FORMATS.md): exact parsing rules for CSV and every .txt variant.
+
+## Architecture
+- Pipeline: parse_export → characterize (per-room rubric) → analyze → topics → summarize → daily → [narrate if LLM] → static dashboard.
+- Data contract: every stage shares corpus.jsonl (see AGENTS.md). New source platforms = a new importer emitting that contract.
+- Adaptivity: personas are not hardcoded; an LLM (or a universal fallback) defines each room's archetypes as weight-maps over universal features.
+
+## Key files
+- [ourchat/parse_export.py](ourchat/parse_export.py): export → corpus.
+- [ourchat/analyze.py](ourchat/analyze.py): graph, personas, rankings, timeline.
+- [ourchat/characterize.py](ourchat/characterize.py): room rubric (LLM or universal).
+- [ourchat/topics.py](ourchat/topics.py): topic clustering (offline TF-IDF; optional embeddings).
+- [ourchat/llm.py](ourchat/llm.py): pluggable LLM adapter (none | openai-compatible | anthropic).
+- [ourchat/merge.py](ourchat/merge.py): incremental update — union + dedup a newer export.
+
+## Optional
+- [Hosting](docs/HOSTING.md): self-host / share privately.
+- [Privacy](PRIVACY.md): consent and the local-first stance.

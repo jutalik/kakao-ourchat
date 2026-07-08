@@ -1,0 +1,4 @@
+numpy>=1.24
+scikit-learn>=1.3
+# LLM/embeddings are called over HTTP via stdlib urllib — no SDK required.
+# (Optional) bring your own model by setting KAKAO_LLM_* / OURCHAT_EMBED_* env vars.

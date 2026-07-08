@@ -1,0 +1,23 @@
+# never commit chat data, keys, or build artifacts
+web/public/data/rooms/
+web/public/data/index.json
+*.csv
+*.txt
+!requirements.txt
+!llms.txt
+!samples/*.csv
+!docs/*.md
+!AGENTS.md
+!README.md
+!*.md
+.venv/
+venv/
+node_modules/
+dist/
+__pycache__/
+*.pyc
+.env
+*.key
+/tmp/
+scratch/
+.ourchat/
